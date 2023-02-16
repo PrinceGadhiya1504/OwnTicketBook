@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_background"
+    android:orientation="vertical"
+    android:padding="20sp"
+    tools:context=".RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoimage"
+            android:layout_marginTop="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:layout_marginBottom="20sp"
+            android:src="@drawable/logo"
+            android:contentDescription="logo" />
+
+        <TextView
+            android:id="@+id/lblRegister"
+            android:layout_below="@id/logoimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <EditText
+            android:id="@+id/txtfullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblRegister"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="30sp"
+            android:hint="Enter Full Name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/txtphonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtfullname"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="10sp"
+            android:hint="Enter Phone Number"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/txtusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtphonenumber"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="10sp"
+            android:hint="Enter Username"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/txtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtusername"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="10sp"
+            android:hint="Enter Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/txtcomformpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtpassword"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="10sp"
+            android:hint="Enter Comform Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnsignup"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtcomformpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40sp"
+            android:background="@drawable/button_style"
+            android:text="Sign Up"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+
+</ScrollView>

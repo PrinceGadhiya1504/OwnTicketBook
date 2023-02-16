@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15sp"
+    android:background="@color/black_background"
+    android:orientation="vertical"
+    tools:context=".MoviesActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_white">
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="35sp"
+            android:contentDescription="moviephoto"
+            android:src="@drawable/rrr_poster"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/txttitle"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="160sp"
+            android:text="Movie Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblreleasedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ReleseDate :"
+            android:textStyle="bold"
+            android:layout_marginStart="170sp"
+            android:layout_marginTop="10sp"
+            android:layout_below="@id/txttitle"
+            />
+        <TextView
+            android:id="@+id/txtreleasedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="260sp"
+            android:layout_marginTop="10sp"
+            android:layout_below="@id/txttitle"
+            android:gravity="center"
+            android:text="ReleseDate"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/lbllanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language : "
+            android:layout_marginTop="10sp"
+            android:layout_below="@id/lblreleasedate"
+            android:layout_marginStart="170sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txtlanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="260sp"
+            android:layout_below="@id/txtreleasedate"
+            android:layout_marginTop="10sp"
+            android:text="Language"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/lblprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Price :"
+            android:layout_below="@id/txtlanguage"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="170sp"
+            />
+
+        <TextView
+            android:id="@+id/txtprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="260sp"
+            android:layout_below="@id/txtlanguage"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="20sp"
+            android:text="Price"
+            android:textColor="@color/black" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnbooknow"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtprice"
+            android:layout_marginStart="200sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/button_style"
+            android:text="Book Now" />
+
+    </RelativeLayout>
+
+</ScrollView>

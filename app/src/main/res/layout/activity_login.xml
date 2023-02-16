@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:orientation="vertical"
+    android:background="@color/black_background"
+    android:padding="20sp"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoimage"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:layout_marginTop="80sp"
+            android:layout_marginBottom="20sp"
+            android:src="@drawable/logo"
+            android:contentDescription="logo" />
+        <TextView
+            android:id="@+id/lbllogin"
+            android:layout_below="@id/logoimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Login"
+            android:padding="10sp"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/txtusername"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbllogin"
+            android:layout_marginBottom="20sp"
+            android:hint="username"
+            android:drawableStart="@drawable/ic_baseline_person"
+            android:drawablePadding="15sp"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:autofillHints="username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/txtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtusername"
+            android:hint="password"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/ic_outline_lock"
+            android:drawablePadding="15sp"
+            android:textColorHint="@color/white"
+            android:autofillHints="password"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/lblforgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtpassword"
+            android:layout_alignParentEnd="true"
+            android:text="Forgot Password"
+            android:textColor="@color/greenblue"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnlogin"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtpassword"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_style"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:layout_marginTop="50sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnlogin"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/lbldotaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account ?"
+                android:textColor="@color/white"
+                android:layout_marginEnd="10sp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/lblregisterlink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Click here"
+                android:textColor="@color/greenblue"
+                android:textSize="15sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
