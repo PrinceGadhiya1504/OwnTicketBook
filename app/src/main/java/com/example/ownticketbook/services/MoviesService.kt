@@ -16,4 +16,9 @@ class MoviesService
     {
         return ApiRequest.post(ApiRequest.MOVIE_URL, Gson().toJson(movieImage))
     }
+
+    fun getMovie(movieId: Int): ApiResponse
+    {
+        return ApiRequest.get(ApiRequest.MOVIE_URL.plus("?Id=").plus(movieId))
+    }
 }

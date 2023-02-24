@@ -8,8 +8,8 @@ class ApiRequest
 {
     companion object
     {
-        @JvmStatic val BASE_URL = "http://172.28.0.4/movieticket"
-        @JvmStatic val IMAGE_URL = "$BASE_URL/images"
+        @JvmStatic val BASE_URL = "http://172.28.0.4/Movie Ticket"
+        @JvmStatic val IMAGE_URL = "$BASE_URL/admin/images"
         @JvmStatic val API_URL = "$BASE_URL/api"
         @JvmStatic val LOGIN_URL = "$API_URL/login.php"
         @JvmStatic val REGISTER_URL = "$API_URL/register.php"

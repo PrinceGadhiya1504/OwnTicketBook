@@ -1,15 +1,15 @@
 package com.example.ownticketbook
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ownticketbook.utils.ApiRequest
 import com.example.ownticketbook.adapters.MoviesAdapter
 import com.example.ownticketbook.models.Movie
 import com.example.ownticketbook.services.MoviesService
+import com.example.ownticketbook.utils.ApiRequest
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.HttpURLConnection
 
-class MoviesActivity: AppCompatActivity()
+class MoviesActivity : AppCompatActivity()
 {
     private lateinit var moviesService: MoviesService
     private lateinit var recmovielist: RecyclerView
@@ -54,11 +54,10 @@ class MoviesActivity: AppCompatActivity()
                     Movie(
                         Id = movie.Id,
                         Name = movie.Name,
-                        // Description = movie.Description,
                         ReleaseDate = movie.ReleaseDate,
                         Language = movie.Language,
                         TicketPrice = movie.TicketPrice,
-                        ImageName = ApiRequest.IMAGE_URL.plus(movie.ImageName)
+                        ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
                     )
                 )
             }
@@ -72,7 +71,7 @@ class MoviesActivity: AppCompatActivity()
                         override fun onClick(movie: Movie)
                         {
                             val intent = Intent(this@MoviesActivity, ShowTimeActivity::class.java)
-                            intent.putExtra("movieId", movie.Id)
+                            intent.putExtra("Id", movie.Id)
                             startActivity(intent)
                         }
                     })

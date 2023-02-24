@@ -1,12 +1,16 @@
 package com.example.ownticketbook
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.ownticketbook.models.Movie
 import com.example.ownticketbook.services.MoviesService
+import com.example.ownticketbook.utils.ApiRequest
 import com.google.gson.Gson
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker
 import kotlinx.coroutines.CoroutineScope
@@ -22,15 +26,21 @@ class ShowTimeActivity : AppCompatActivity()
     private lateinit var dayPicker: DayScrollDatePicker
     private lateinit var selectDate: String
     private lateinit var moviesService: MoviesService
-    private lateinit var movie: Movie
+    private var movieId: Int = 0
+    private lateinit var lblMovieName: TextView
     private lateinit var Disciption: TextView
+    private lateinit var Image: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_time)
 
-        Disciption = findViewById(R.id.txtdescription)
+        movieId = intent.getIntExtra("Id", 0)
+
+        Disciption = findViewById(R.id.lblDescription)
+        lblMovieName = findViewById(R.id.txtmoviename)
+        Image = findViewById(R.id.image)
 
         val c = Calendar.getInstance()
 
@@ -74,16 +84,21 @@ class ShowTimeActivity : AppCompatActivity()
     {
         CoroutineScope(Dispatchers.IO).launch {
             moviesService = MoviesService()
-            val response = moviesService.getAllMovie()
+            val response = moviesService.getMovie(movieId)
             if (response.code == HttpURLConnection.HTTP_OK)
             {
-                movie = Gson().fromJson(response.message, Movie::class.java)
-
-//                val name = movies.Name
-//                val Desciption = movies.Description
-
-                withContext(Dispatchers.Main) {
-                    Disciption.text = Disciption.toString()
+                val movies = Gson().fromJson(response.message, Array<Movie>::class.java)
+                for (movie in movies)
+                {
+                    val name = movie.Name
+                    val ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
+                    val Desciption = movie.Description
+                    withContext(Dispatchers.Main)
+                    {
+                        lblMovieName.text = name
+                        Disciption.text = Desciption
+                        Glide.with(this@ShowTimeActivity).load(ImageName).into(Image)
+                    }
                 }
             }
         }

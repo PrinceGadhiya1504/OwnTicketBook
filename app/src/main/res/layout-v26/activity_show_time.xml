@@ -42,11 +42,10 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="160sp"
             android:layout_marginTop="20sp"
-            android:layout_marginBottom="30sp"
+            android:layout_marginBottom="120sp"
             tools:text="Description"
             android:textColor="@color/white"
             android:justificationMode="inter_word"
-            tools:targetApi="o"
              />
 
 
