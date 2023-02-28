@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Movie Name"
+            android:layout_marginTop="80sp"
             android:textColor="@color/greenblue"
             android:textSize="40sp" />
 
@@ -38,16 +39,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/image"
-            android:gravity="center"
             android:layout_centerInParent="true"
-            android:layout_marginStart="160sp"
+            android:layout_marginStart="60sp"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="30sp"
-            tools:text="Description"
-            android:textColor="@color/white"
+            android:gravity="center"
             android:justificationMode="inter_word"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             tools:targetApi="o"
-             />
+            tools:text="Description" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

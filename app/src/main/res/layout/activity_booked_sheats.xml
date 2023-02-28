@@ -25,24 +25,34 @@
             android:textSize="40sp" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="wed, 25 Jan"
             android:textColor="@color/white"
-            android:layout_marginTop="20sp"
-            android:textSize="20sp"
             android:layout_below="@id/lblmoviename"
             />
-        <androidx.appcompat.widget.AppCompatButton
+
+        <TextView
             android:id="@+id/btn"
             android:layout_width="80sp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10sp"
-            android:layout_below="@id/lblmoviename"
-            android:background="@drawable/button_style"
+            android:layout_height="30sp"
+            android:layout_below="@id/date"
             android:text="9:00 AM"
-            android:textColor="@color/black" />
+            android:textColor="@color/greenblue" />
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn"-->
+<!--            android:layout_width="80sp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="10sp"-->
+<!--            android:layout_below="@id/lblmoviename"-->
+<!--            android:background="@drawable/button_style"-->
+<!--            android:text="9:00 AM"-->
+<!--            android:textColor="@color/black" />-->
+
+
 
         <LinearLayout
             android:id="@+id/steatrowA"
