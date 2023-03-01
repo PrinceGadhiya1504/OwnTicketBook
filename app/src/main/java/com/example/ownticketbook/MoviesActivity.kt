@@ -55,9 +55,12 @@ class MoviesActivity : AppCompatActivity()
                         Id = movie.Id,
                         Name = movie.Name,
                         ReleaseDate = movie.ReleaseDate,
+                        Description = movie.Description,
                         Language = movie.Language,
                         TicketPrice = movie.TicketPrice,
-                        ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
+                        ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}",
+                        FirstShowTime = movie.FirstShowTime,
+                        SecondShowTime = movie.SecondShowTime
                     )
                 )
             }
@@ -70,8 +73,11 @@ class MoviesActivity : AppCompatActivity()
                     {
                         override fun onClick(movie: Movie)
                         {
-                            val intent = Intent(this@MoviesActivity, ShowTimeActivity::class.java)
+                            val intent = Intent(this@MoviesActivity, BookedSeatsActivity::class.java)
                             intent.putExtra("Id", movie.Id)
+                            intent.putExtra("Name", movie.Name)
+                            intent.putExtra("FirstShowTime",movie.FirstShowTime)
+                            intent.putExtra("SecondShowTime",movie.SecondShowTime)
                             startActivity(intent)
                         }
                     })

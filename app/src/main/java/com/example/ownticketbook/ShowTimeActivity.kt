@@ -33,7 +33,6 @@ class ShowTimeActivity : AppCompatActivity()
     private lateinit var lblMovieName: TextView
     private lateinit var Disciption: TextView
     private lateinit var Image: ImageView
-    private lateinit var btn9am: Button
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -102,7 +101,6 @@ class ShowTimeActivity : AppCompatActivity()
                             val intent = Intent(this@ShowTimeActivity, BookedSeatsActivity::class.java)
                             intent.putExtra("Name", name)
                             intent.putExtra("Date",selectDate)
-                                intent.putExtra("9am","9am")
                             startActivity(intent)
 
                         }
@@ -111,7 +109,6 @@ class ShowTimeActivity : AppCompatActivity()
                             val intent = Intent(this@ShowTimeActivity, BookedSeatsActivity::class.java)
                             intent.putExtra("Name", name)
                             intent.putExtra("Date",selectDate)
-                            intent.putExtra("3am","3am")
                             startActivity(intent)
 
                         }

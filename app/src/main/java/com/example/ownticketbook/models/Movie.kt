@@ -7,5 +7,7 @@ data class Movie(
     val ReleaseDate:String =  "",
     val Language:String =  "",
     val TicketPrice:Int =  0,
-    val ImageName:String =  ""
+    val ImageName:String =  "",
+    val FirstShowTime:String = "",
+    val SecondShowTime:String = ""
 )

@@ -40,21 +40,25 @@ class MoviesAdapter(
         private var image: ImageView = itemView.findViewById(R.id.image)
         private var title: TextView = itemView.findViewById(R.id.txttitle)
 
-        //         private var description: TextView = itemView.findViewById(R.id.txtdescription)
+        private var description: TextView = itemView.findViewById(R.id.txtdescription)
         private var releasedate: TextView = itemView.findViewById(R.id.txtreleasedate)
         private var language: TextView = itemView.findViewById(R.id.txtlanguage)
         private var price: TextView = itemView.findViewById(R.id.txtprice)
         private var btnBook: Button = itemView.findViewById(R.id.btnbooknow)
+        private var firstshowtime: TextView = itemView.findViewById(R.id.txtfirstshowtime)
+        private var secondshowtime: TextView = itemView.findViewById(R.id.txtsecondshowtime)
 
         fun bind(movie: Movie)
         {
             Glide.with(context).load(movie.ImageName).into(image)
 
             title.text = movie.Name
-//             description.text = movie.Description
+            description.text = movie.Description
             releasedate.text = movie.ReleaseDate
             language.text = movie.Language
             price.text = movie.TicketPrice.toString()
+            firstshowtime.text = movie.FirstShowTime
+            secondshowtime.text = movie.SecondShowTime
 
             btnBook.setOnClickListener { clickListener?.onClick(movie) }
         }

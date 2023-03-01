@@ -96,19 +96,71 @@
             android:layout_marginStart="260sp"
             android:layout_below="@id/txtlanguage"
             android:layout_marginTop="10sp"
-            android:layout_marginBottom="20sp"
             android:text="Price"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/lbltime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginStart="170sp"
+            android:layout_below="@id/lblprice"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="20sp"
+            android:text="Time :"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtfirstshowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="260sp"
+            android:layout_below="@id/txtprice"
+            android:text="Time"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/txtsecondshowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="260sp"
+            android:layout_below="@id/txtfirstshowtime"
+            android:text="Time"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/lbldescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="20sp"
+            android:layout_below="@id/image"
+            android:textStyle="bold"
+            android:text="Description"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtdescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="20sp"
+            android:layout_below="@id/lbldescription"
+            android:text="Time"
             android:textColor="@color/black" />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnbooknow"
             android:layout_width="130sp"
+            android:layout_marginTop="10sp"
             android:elevation="100sp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtprice"
-            android:layout_marginStart="200sp"
+            android:layout_below="@id/txtdescription"
             android:layout_marginBottom="20sp"
+            android:layout_centerInParent="true"
             android:background="@drawable/button_style"
             android:text="Book Now" />
 
