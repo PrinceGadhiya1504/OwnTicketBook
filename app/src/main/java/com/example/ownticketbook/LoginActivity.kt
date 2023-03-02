@@ -1,6 +1,7 @@
 package com.example.ownticketbook
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -19,12 +20,17 @@ import java.net.HttpURLConnection
 class LoginActivity : AppCompatActivity()
 {
     private lateinit var authService: AuthService
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         authService = AuthService()
+        sharedPreferences = getSharedPreferences("own_pref", MODE_PRIVATE)
+        val id = sharedPreferences.getInt("id",0)
+        if(id != 0)
+            movie()
 
         val txtusername = findViewById<EditText>(R.id.txtusername)
         val txtpassword = findViewById<EditText>(R.id.txtpassword)
@@ -41,6 +47,10 @@ class LoginActivity : AppCompatActivity()
                 {
                     val loggedInUser = Gson().fromJson(response.message, User::class.java)
                     withContext(Dispatchers.Main) {
+                        val editor = sharedPreferences.edit()
+                        editor.putString("username",loggedInUser.Username)
+                        editor.putInt("id",loggedInUser.Id)
+                        editor.apply()
                         movie()
                     }
                 } else if (response.code == HttpURLConnection.HTTP_NOT_FOUND)
@@ -69,11 +79,7 @@ class LoginActivity : AppCompatActivity()
 
     private fun movie()
     {
-        findViewById<Button>(R.id.btnlogin).let {
-            it.setOnClickListener {
-                val intent = Intent(this, MoviesActivity::class.java)
-                startActivity(intent)
-            }
-        }
+        startActivity(Intent(this, MoviesActivity::class.java))
+        finish()
     }
 }
