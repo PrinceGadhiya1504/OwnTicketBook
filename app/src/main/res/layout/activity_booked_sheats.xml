@@ -12,15 +12,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp"
-        >
+        android:padding="15sp">
 
         <ImageView
             android:id="@+id/movieimage"
             android:layout_width="120sp"
             android:layout_height="120sp"
-            android:contentDescription="moviephoto"
             android:layout_alignParentEnd="true"
+            android:contentDescription="moviephoto"
             android:src="@drawable/rrr_poster"
             tools:ignore="ImageContrastCheck" />
 
@@ -28,8 +27,8 @@
             android:id="@+id/lblmoviename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Movie Name"
             android:layout_marginTop="20sp"
+            android:text="Movie Name"
             android:textColor="@color/greenblue"
             android:textSize="40sp" />
 
@@ -45,9 +44,9 @@
             android:id="@+id/btnsecondshowtime"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
+            android:layout_below="@id/lblmoviename"
             android:layout_marginStart="10sp"
             android:layout_toEndOf="@id/btnfirstshowtime"
-            android:layout_below="@id/lblmoviename"
             android:background="@drawable/button_style"
             android:text="book now" />
 
@@ -63,312 +62,313 @@
                 android:id="@+id/day_date_picker"
                 android:layout_width="300sp"
                 android:layout_height="wrap_content"
-                app:showTitle="false"
-                app:showFullDate="true"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:baseColor="@color/black_background"
                 app:baseTextColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:selectedColor="@color/black_background"
                 app:selectedTextColor="@color/teal_200"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:showFullDate="true"
+                app:showTitle="false" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/btn"-->
-<!--            android:layout_width="80sp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="10sp"-->
-<!--            android:layout_below="@id/lblmoviename"-->
-<!--            android:background="@drawable/button_style"-->
-<!--            android:text="9:00 AM"-->
-<!--            android:textColor="@color/black" />-->
-
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/btn"-->
+        <!--            android:layout_width="80sp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:layout_marginTop="10sp"-->
+        <!--            android:layout_below="@id/lblmoviename"-->
+        <!--            android:background="@drawable/button_style"-->
+        <!--            android:text="9:00 AM"-->
+        <!--            android:textColor="@color/black" />-->
 
 
         <LinearLayout
             android:id="@+id/steatrowA"
-            android:layout_below="@id/datetime"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/datetime"
             android:layout_marginTop="10sp"
-            android:layout_height="wrap_content">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
                 android:id="@+id/seatA1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateSpeakableTextCheck" />
+
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/seatA2"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatA3"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50sp" />
+
+            <CheckBox
                 android:id="@+id/seatA4"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatA5" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatA5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatA6" />
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/seatA6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/steatrowB"
-            android:layout_below="@id/steatrowA"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/steatrowA"
             android:gravity="center"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="B"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
+                android:id="@+id/seatB1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatB1" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatB2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatB2" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatB3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
-                android:id="@+id/seatB3" />
+                android:layout_marginStart="50sp" />
+
             <CheckBox
+                android:id="@+id/seatB4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatB4" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatB5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatB5" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatB6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatB6" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/steatrowC"
-            android:layout_below="@id/steatrowB"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/steatrowB"
             android:gravity="center"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="C"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
+                android:id="@+id/seatC1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatC1" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatC2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatC2" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatC3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
-                android:id="@+id/seatC3" />
+                android:layout_marginStart="50sp" />
+
             <CheckBox
+                android:id="@+id/seatC4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatC4" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatC5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatC5" />
+                android:layout_height="wrap_content" />
+
             <CheckBox
+                android:id="@+id/seatC6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seatC6" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/steatrowD"
-            android:layout_below="@id/steatrowC"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/steatrowC"
             android:gravity="center"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="D"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/seatD1"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatD2"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatD3"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50sp" />
+
+            <CheckBox
                 android:id="@+id/seatD4"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatD5"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatD6"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/steatrowE"
-            android:layout_below="@id/steatrowD"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/steatrowD"
             android:gravity="center"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="E"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/seatE1"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatE2"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatE3"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50sp" />
+
+            <CheckBox
                 android:id="@+id/seatE4"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatE5"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatE6"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/steatrowF"
-            android:layout_below="@id/steatrowE"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/steatrowE"
             android:gravity="center"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="F"
-                android:textSize="15sp"
                 android:textColor="@color/white"
-                />
+                android:textSize="15sp" />
 
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/seatF1"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatF2"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50sp"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatF3"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50sp" />
+
+            <CheckBox
                 android:id="@+id/seatF4"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatF5"
-                />
-            <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
                 android:id="@+id/seatF6"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton

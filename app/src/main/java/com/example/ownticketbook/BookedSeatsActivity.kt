@@ -1,19 +1,19 @@
 package com.example.ownticketbook
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.ownticketbook.models.Booking
 import com.example.ownticketbook.models.Movie
 import com.example.ownticketbook.models.Seat
 import com.example.ownticketbook.services.BookingService
 import com.example.ownticketbook.services.MoviesService
 import com.example.ownticketbook.utils.ApiRequest
+import com.example.ownticketbook.utils.TimeUtils
 import com.google.gson.Gson
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker
 import kotlinx.coroutines.CoroutineScope
@@ -21,8 +21,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.HttpURLConnection
+import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class BookedSeatsActivity : AppCompatActivity()
 {
@@ -30,11 +30,11 @@ class BookedSeatsActivity : AppCompatActivity()
     private lateinit var selectDate: String
     private lateinit var moviesService: MoviesService
     private var movieId: Int = 0
-    private lateinit var seat: Seat
     private lateinit var Image: ImageView
     private lateinit var lblMovieName: TextView
     private lateinit var btnfirstshowtime: Button
     private lateinit var btnsecondshowtime: Button
+    private lateinit var btnBookNow: Button
     private lateinit var time: String
     private lateinit var a1: CheckBox
     private lateinit var a2: CheckBox
@@ -84,8 +84,11 @@ class BookedSeatsActivity : AppCompatActivity()
         lblMovieName = findViewById(R.id.lblmoviename)
         btnfirstshowtime = findViewById(R.id.btnfirstshowtime)
         btnsecondshowtime = findViewById(R.id.btnsecondshowtime)
+        btnBookNow = findViewById(R.id.btnbooknow)
         seats = emptyArray()
-
+        btnBookNow.setOnClickListener {
+            bookSeat()
+        }
         /*
         seats.plus("value")
         */
@@ -156,7 +159,6 @@ class BookedSeatsActivity : AppCompatActivity()
                             clearCheckBox()
                             time = SecondShowTime
                             getSeats(time)
-
                         }
                     }
                 }
@@ -171,10 +173,11 @@ class BookedSeatsActivity : AppCompatActivity()
         dayPicker = findViewById(R.id.day_date_picker)
         dayPicker.setStartDate(day, month + 1, year)
         dayPicker.getSelectedDate { date ->
-            selectDate = date.toString()
+            if (date == null)
+                return@getSelectedDate
+
+            selectDate = TimeUtils.formatAsDate(date)
         }
-
-
     }
 
     private fun getSeats(time: String)
@@ -373,7 +376,8 @@ class BookedSeatsActivity : AppCompatActivity()
         }
     }
 
-    private fun clearCheckBox(){
+    private fun clearCheckBox()
+    {
         a1.isChecked = false
         a2.isChecked = false
         a3.isChecked = false
@@ -448,7 +452,7 @@ class BookedSeatsActivity : AppCompatActivity()
         f6.isEnabled = true
     }
 
-    private fun bookTicket()
+    private fun selectedSeat()
     {
         if (a1.isChecked && a1.isEnabled)
             seats.plus("A1")
@@ -523,4 +527,29 @@ class BookedSeatsActivity : AppCompatActivity()
         if (f6.isChecked && f6.isEnabled)
             seats.plus("F6")
     }
+
+    private fun bookSeat()
+    {
+        val sharedPreferences = getSharedPreferences("own_pref", MODE_PRIVATE)
+        val id = sharedPreferences.getInt("id",0)
+        val currentDate = Calendar.getInstance()
+        val dateFormatDatabase = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val bookingDate = dateFormatDatabase.format(currentDate.time)
+        selectedSeat()
+        val booking = Booking(UserId = id, MovieName = movieId.toString(), BookingDate = bookingDate, ShowDate = selectDate, Time = time, SeatNo = seats)
+        CoroutineScope(Dispatchers.IO).launch {
+            val bookingService = BookingService()
+            val response = bookingService.bookSeats(booking)
+            if(response.code == HttpURLConnection.HTTP_OK)
+            {
+                withContext(Dispatchers.Main)
+                {
+                    Toast.makeText(this@BookedSeatsActivity, "Booking Done!", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this@BookedSeatsActivity,BookingActivity::class.java))
+                    finish()
+                }
+            }
+        }
+    }
+
 }

@@ -1,12 +1,19 @@
 package com.example.ownticketbook.services
 
+import com.example.ownticketbook.models.Booking
 import com.example.ownticketbook.utils.ApiRequest
 import com.example.ownticketbook.utils.ApiResponse
+import com.google.gson.Gson
 
 class BookingService
 {
     fun getBookedSeats(time: String): ApiResponse
     {
         return ApiRequest.get(ApiRequest.SEAT_URL.plus("?time=$time"))
+    }
+
+    fun bookSeats(booking: Booking): ApiResponse
+    {
+        return ApiRequest.post(ApiRequest.SEAT_URL,Gson().toJson(booking))
     }
 }
