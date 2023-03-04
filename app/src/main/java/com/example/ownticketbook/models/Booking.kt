@@ -9,7 +9,7 @@ data class Booking(
     val BookingDate: String = "",
     val ShowDate: String = "",
     val Time: String = "",
-    val SeatNo: Array<String>,
+    val SeatNo: ArrayList<String>,
     val TicketPrice: String = "",
     val TotalSeats: String = "",
     val Total: String = ""
