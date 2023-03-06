@@ -1,6 +1,7 @@
 package com.example.ownticketbook
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +38,7 @@ class BookedSeatsActivity : AppCompatActivity()
     private lateinit var btnsecondshowtime: Button
     private lateinit var btnBookNow: Button
     private lateinit var time: String
+    private lateinit var date: String
     private lateinit var a1: CheckBox
     private lateinit var a2: CheckBox
     private lateinit var a3: CheckBox
@@ -108,6 +110,8 @@ class BookedSeatsActivity : AppCompatActivity()
                     val ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
                     val FirstShoeTime = movie.FirstShowTime
                     val SecondShowTime = movie.SecondShowTime
+                    val FirstShowDate = movie.ReleaseDate
+                    val SecondShowDate = movie.ReleaseDate
 
                     withContext(Dispatchers.Main)
                     {
@@ -118,13 +122,17 @@ class BookedSeatsActivity : AppCompatActivity()
                         btnfirstshowtime.setOnClickListener {
                             clearCheckBox()
                             time = FirstShoeTime
-                            getSeats(time)
+                            date = FirstShowDate
+                            btnfirstshowtime.setBackgroundColor(Color.WHITE)
+                            btnsecondshowtime.setBackgroundColor(getColor(R.color.teal_200))
 
                         }
                         btnsecondshowtime.setOnClickListener {
                             clearCheckBox()
                             time = SecondShowTime
-                            getSeats(time)
+                            date = SecondShowDate
+                            btnsecondshowtime.setBackgroundColor(Color.WHITE)
+                            btnfirstshowtime.setBackgroundColor(getColor(R.color.teal_200))
                         }
                     }
                 }
@@ -138,14 +146,24 @@ class BookedSeatsActivity : AppCompatActivity()
 
         dayPicker = findViewById(R.id.day_date_picker)
         dayPicker.setStartDate(day, month + 1, year)
-        dayPicker.getSelectedDate { date ->
-            if (date == null)
+        dayPicker.getSelectedDate { dateq ->
+            if (dateq == null)
                 return@getSelectedDate
 
-            selectDate = TimeUtils.formatAsDate(date)
+            selectDate = TimeUtils.formatAsDate(dateq)
+            // -----------------------
+            val dateString = dateq
+            val formatter = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.getDefault())
+            val date = formatter.parse(dateString.toString())
+            val formattedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date)
+            getSeats(formattedDate)
         }
 
         // On click listener for the  checkbox to add or remove the seat number from the list
+        onClickCheckBoxLister()
+    }
+
+    private fun onClickCheckBoxLister(){
         a1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked)
             {
@@ -505,7 +523,6 @@ class BookedSeatsActivity : AppCompatActivity()
                 seats.remove("F6")
             }
         }
-
     }
 
     private fun initCheckBox(){
@@ -547,11 +564,11 @@ class BookedSeatsActivity : AppCompatActivity()
         f6 = findViewById(R.id.seatF6)
     }
 
-    private fun getSeats(time: String)
+    private fun getSeats(date: String)
     {
         CoroutineScope(Dispatchers.IO).launch {
             val bookingService = BookingService()
-            val response = bookingService.getBookedSeats(time)
+            val response = bookingService.getBookedSeats(time, date)
 
             val seats = Gson().fromJson(response.message, Array<Seat>::class.java)
 
@@ -817,82 +834,6 @@ class BookedSeatsActivity : AppCompatActivity()
         f4.isEnabled = true
         f5.isEnabled = true
         f6.isEnabled = true
-    }
-
-    private fun selectedSeat()
-    {
-        if (a1.isChecked && a1.isEnabled)
-            seats.plus("A1")
-        if (a2.isChecked && a2.isEnabled)
-            seats.plus("A2")
-        if (a3.isChecked && a3.isEnabled)
-            seats.plus("A3")
-        if (a4.isChecked && a4.isEnabled)
-            seats.plus("A4")
-        if (a5.isChecked && a5.isEnabled)
-            seats.plus("A5")
-        if (a6.isChecked && a6.isEnabled)
-            seats.plus("A6")
-        if (b1.isChecked && b1.isEnabled)
-            seats.plus("B1")
-        if (b2.isChecked && b2.isEnabled)
-            seats.plus("B2")
-        if (b3.isChecked && b3.isEnabled)
-            seats.plus("B3")
-        if (b4.isChecked && b4.isEnabled)
-            seats.plus("B4")
-        if (b5.isChecked && b5.isEnabled)
-            seats.plus("B5")
-        if (b6.isChecked && b6.isEnabled)
-            seats.plus("B6")
-        if (c1.isChecked && c1.isEnabled)
-            seats.plus("C1")
-        if (c2.isChecked && c2.isEnabled)
-            seats.plus("C2")
-        if (c3.isChecked && c3.isEnabled)
-            seats.plus("C3")
-        if (c4.isChecked && c4.isEnabled)
-            seats.plus("C4")
-        if (c5.isChecked && c5.isEnabled)
-            seats.plus("C5")
-        if (c6.isChecked && c6.isEnabled)
-            seats.plus("C6")
-        if (d1.isChecked && d1.isEnabled)
-            seats.plus("D1")
-        if (d2.isChecked && d2.isEnabled)
-            seats.plus("D2")
-        if (d3.isChecked && d3.isEnabled)
-            seats.plus("D3")
-        if (d4.isChecked && d4.isEnabled)
-            seats.plus("D4")
-        if (d5.isChecked && d5.isEnabled)
-            seats.plus("D5")
-        if (d6.isChecked && d6.isEnabled)
-            seats.plus("D6")
-        if (e1.isChecked && e1.isEnabled)
-            seats.plus("E1")
-        if (e2.isChecked && e2.isEnabled)
-            seats.plus("E2")
-        if (e3.isChecked && e3.isEnabled)
-            seats.plus("E3")
-        if (e4.isChecked && e4.isEnabled)
-            seats.plus("E4")
-        if (e5.isChecked && e5.isEnabled)
-            seats.plus("E5")
-        if (e6.isChecked && e6.isEnabled)
-            seats.plus("E6")
-        if (f1.isChecked && f1.isEnabled)
-            seats.plus("F1")
-        if (f2.isChecked && f2.isEnabled)
-            seats.plus("F2")
-        if (f3.isChecked && f3.isEnabled)
-            seats.plus("F3")
-        if (f4.isChecked && f4.isEnabled)
-            seats.plus("F4")
-        if (f5.isChecked && f5.isEnabled)
-            seats.plus("F5")
-        if (f6.isChecked && f6.isEnabled)
-            seats.plus("F6")
     }
 
     private fun bookSeat()

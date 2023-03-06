@@ -7,9 +7,9 @@ import com.google.gson.Gson
 
 class BookingService
 {
-    fun getBookedSeats(time: String): ApiResponse
+    fun getBookedSeats(time: String, date: String): ApiResponse
     {
-        return ApiRequest.get(ApiRequest.SEAT_URL.plus("?time=$time"))
+        return ApiRequest.get(ApiRequest.SEAT_URL.plus("?time=$time&date=$date"))
     }
 
     fun bookSeats(booking: Booking): ApiResponse

@@ -9,5 +9,8 @@ data class Movie(
     val TicketPrice:Int =  0,
     val ImageName:String =  "",
     val FirstShowTime:String = "",
-    val SecondShowTime:String = ""
+    val FirstShowDate: String= "",
+    val SecondShowTime:String = "",
+    val SecondShowDate:String = ""
+
 )
