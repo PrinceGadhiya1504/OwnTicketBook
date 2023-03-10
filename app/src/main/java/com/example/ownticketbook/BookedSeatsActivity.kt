@@ -566,6 +566,7 @@ class BookedSeatsActivity : AppCompatActivity()
 
     private fun getSeats(date: String)
     {
+        clearCheckBox()
         CoroutineScope(Dispatchers.IO).launch {
             val bookingService = BookingService()
             val response = bookingService.getBookedSeats(time, date)
