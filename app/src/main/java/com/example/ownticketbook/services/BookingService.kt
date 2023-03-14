@@ -16,4 +16,9 @@ class BookingService
     {
         return ApiRequest.post(ApiRequest.SEAT_URL,Gson().toJson(booking))
     }
+
+    fun getBooking(id: Int): ApiResponse
+    {
+        return ApiRequest.get(ApiRequest.TICKET_URL.plus("?id=$id"))
+    }
 }

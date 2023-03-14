@@ -39,27 +39,27 @@
                 android:id="@+id/lblmoviename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="movie name"
-                android:layout_marginTop="50sp"
+                android:text="RRR"
+                android:layout_marginTop="20sp"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/lbldate"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25sp"
-                android:text="date"
+                android:text="2023-03-13"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:layout_below="@id/lblmoviename"
                 />
             <TextView
                 android:id="@+id/lbltime"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time"
+                android:text="9:00 AM"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_below="@id/lbldate"
@@ -90,7 +90,7 @@
                 android:id="@+id/lblseats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="seats"
+                android:text="seats no"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:layout_marginTop="15sp"
@@ -100,7 +100,7 @@
                 android:id="@+id/lblseatsnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="seats no"
+                android:text="A1 A2"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_below="@id/lblseats"
@@ -137,10 +137,10 @@
                 android:layout_below="@id/lblbookingsummary"
                 />
             <TextView
-                android:id="@+id/lbltotalticketsrs"
+                android:id="@+id/txtprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="rs"
+                android:text="200"
                 android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
                 android:textSize="15sp"
@@ -156,10 +156,10 @@
                 android:layout_below="@id/lbltotaltickets"
                 />
             <TextView
-                android:id="@+id/lbltextfeesrs"
+                android:id="@+id/txtseats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="rs"
+                android:text="2"
                 android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
                 android:textSize="15sp"
@@ -187,10 +187,10 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/lbltotalrs"
+                android:id="@+id/txttotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="rs"
+                android:text="400"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
@@ -198,7 +198,7 @@
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnprocessforpayment"
+            android:id="@+id/btnbaketohome"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:layout_below="@id/card3"
@@ -206,7 +206,7 @@
             android:background="@drawable/button_style"
             android:layout_marginTop="20sp"
             android:padding="10sp"
-            android:text="process_for_payment"
+            android:text="Back to home"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     </RelativeLayout>

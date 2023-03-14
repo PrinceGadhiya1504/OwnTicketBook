@@ -16,6 +16,7 @@ class ApiRequest
         @JvmStatic val USERS_URL = "$API_URL/users.php"
         @JvmStatic val MOVIE_URL = "$API_URL/movie.php"
         @JvmStatic val SEAT_URL = "$API_URL/bookedseats.php"
+        @JvmStatic val TICKET_URL = "$API_URL/ticket.php"
 
         @JvmStatic
         fun get(url: String): ApiResponse

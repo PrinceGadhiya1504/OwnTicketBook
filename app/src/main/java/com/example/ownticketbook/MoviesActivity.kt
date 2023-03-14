@@ -39,11 +39,11 @@ class MoviesActivity : AppCompatActivity()
             moviesService = MoviesService()
             val response = moviesService.getAllMovie()
 
-            if (response.code == HttpURLConnection.HTTP_NOT_FOUND)
-            {
-                Toast.makeText(this@MoviesActivity, "No Data Found", Toast.LENGTH_LONG).show()
-                return@launch
-            }
+//            if (response.code == HttpURLConnection.HTTP_NOT_FOUND)
+//            {
+//                Toast.makeText(this@MoviesActivity, "No Data Found", Toast.LENGTH_LONG).show()
+//                return@launch
+//            }
 
             movieList = ArrayList()
             val movies = Gson().fromJson(response.message, Array<Movie>::class.java)
@@ -78,6 +78,7 @@ class MoviesActivity : AppCompatActivity()
                             intent.putExtra("Name", movie.Name)
                             intent.putExtra("FirstShowTime",movie.FirstShowTime)
                             intent.putExtra("SecondShowTime",movie.SecondShowTime)
+                            intent.putExtra("TicketPrice", movie.TicketPrice)
                             startActivity(intent)
                         }
                     })

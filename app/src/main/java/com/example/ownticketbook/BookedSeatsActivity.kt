@@ -32,6 +32,9 @@ class BookedSeatsActivity : AppCompatActivity()
     private lateinit var selectDate: String
     private lateinit var moviesService: MoviesService
     private var movieId: Int = 0
+    private lateinit var ImageName: String
+    private lateinit var TicketPrice: String
+//    private lateinit var SecondShowTime: String
     private lateinit var Image: ImageView
     private lateinit var lblMovieName: TextView
     private lateinit var btnfirstshowtime: Button
@@ -84,12 +87,22 @@ class BookedSeatsActivity : AppCompatActivity()
         setContentView(R.layout.activity_booked_sheats)
 
         movieId = intent.getIntExtra("Id", 0)
+
+        TicketPrice = intent.getIntExtra("TicketPrice",100).toString()
+
+//        movieName = intent.getStringExtra("Name").toString()
+//        FirstShowTime = intent.getStringExtra("FirstShowTime").toString()
+//        SecondShowTime = intent.getStringExtra("SecondShowTime").toString()
+
         lblMovieName = findViewById(R.id.lblmoviename)
         btnfirstshowtime = findViewById(R.id.btnfirstshowtime)
         btnsecondshowtime = findViewById(R.id.btnsecondshowtime)
+
+
         btnBookNow = findViewById(R.id.btnbooknow)
         seats = ArrayList()
         btnBookNow.setOnClickListener {
+            onClickCheckBoxLister()
             bookSeat()
         }
         /*
@@ -107,7 +120,7 @@ class BookedSeatsActivity : AppCompatActivity()
                 for (movie in movies)
                 {
                     val name = movie.Name
-                    val ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
+                    ImageName = "${ApiRequest.IMAGE_URL}/${movie.ImageName}"
                     val FirstShoeTime = movie.FirstShowTime
                     val SecondShowTime = movie.SecondShowTime
                     val FirstShowDate = movie.ReleaseDate
@@ -119,6 +132,7 @@ class BookedSeatsActivity : AppCompatActivity()
                         Glide.with(this@BookedSeatsActivity).load(ImageName).into(Image)
                         btnfirstshowtime.text = FirstShoeTime
                         btnsecondshowtime.text = SecondShowTime
+
                         btnfirstshowtime.setOnClickListener {
                             clearCheckBox()
                             time = FirstShoeTime
@@ -160,368 +174,153 @@ class BookedSeatsActivity : AppCompatActivity()
         }
 
         // On click listener for the  checkbox to add or remove the seat number from the list
-        onClickCheckBoxLister()
     }
 
     private fun onClickCheckBoxLister(){
-        a1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A1")
-            } else
-            {
-                seats.remove("A1")
-            }
-        }
 
-        a2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A2")
-            } else
-            {
-                seats.remove("A2")
-            }
+        if(a1.isChecked && a1.isEnabled)
+        {
+            seats.add("A1")
         }
-
-        a3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A3")
-            } else
-            {
-                seats.remove("A3")
-            }
+        if(a2.isChecked && a2.isEnabled)
+        {
+            seats.add("A2")
         }
-
-        a4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A4")
-            } else
-            {
-                seats.remove("A4")
-            }
+        if(a3.isChecked && a3.isEnabled)
+        {
+            seats.add("A3")
         }
-
-        a5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A5")
-            } else
-            {
-                seats.remove("A5")
-            }
+        if(a4.isChecked && a4.isEnabled)
+        {
+            seats.add("A4")
         }
-
-        a6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("A6")
-            } else
-            {
-                seats.remove("A6")
-            }
+        if(a5.isChecked && a5.isEnabled)
+        {
+            seats.add("A5")
         }
-
-        b1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B1")
-            } else
-            {
-                seats.remove("B1")
-            }
+        if(a6.isChecked && a6.isEnabled)
+        {
+            seats.add("A6")
         }
-
-        b2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B2")
-            } else
-            {
-                seats.remove("B2")
-            }
+        if(b1.isChecked && b1.isEnabled)
+        {
+            seats.add("B1")
         }
-
-        b3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B3")
-            } else
-            {
-                seats.remove("B3")
-            }
+        if(b2.isChecked && b2.isEnabled)
+        {
+            seats.add("B2")
         }
-
-        b4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B4")
-            } else
-            {
-                seats.remove("B4")
-            }
+        if(b3.isChecked && b3.isEnabled)
+        {
+            seats.add("B3")
         }
-
-        b5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B5")
-            } else
-            {
-                seats.remove("B5")
-            }
+        if(b4.isChecked && b4.isEnabled)
+        {
+            seats.add("B4")
         }
-
-        b6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("B6")
-            } else
-            {
-                seats.remove("B6")
-            }
+        if(b5.isChecked && b5.isEnabled)
+        {
+            seats.add("B5")
         }
-
-        c1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C1")
-            } else
-            {
-                seats.remove("C1")
-            }
+        if(b6.isChecked && b6.isEnabled)
+        {
+            seats.add("B6")
         }
-
-        c2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C2")
-            } else
-            {
-                seats.remove("C2")
-            }
+        if(c1.isChecked && c1.isEnabled)
+        {
+            seats.add("C1")
         }
-
-        c3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C3")
-            } else
-            {
-                seats.remove("C3")
-            }
+        if(c2.isChecked && c2.isEnabled)
+        {
+            seats.add("C2")
         }
-
-        c4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C4")
-            } else
-            {
-                seats.remove("C4")
-            }
+        if(c3.isChecked && c3.isEnabled)
+        {
+            seats.add("C3")
         }
-
-        c5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C5")
-            } else
-            {
-                seats.remove("C5")
-            }
+        if(c4.isChecked && c4.isEnabled)
+        {
+            seats.add("C4")
         }
-
-        c6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("C6")
-            } else
-            {
-                seats.remove("C6")
-            }
+        if(c5.isChecked && c5.isEnabled)
+        {
+            seats.add("C5")
         }
-
-        d1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D1")
-            } else
-            {
-                seats.remove("D1")
-            }
+        if(c6.isChecked && c6.isEnabled)
+        {
+            seats.add("C6")
         }
-
-        d2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D2")
-            } else
-            {
-                seats.remove("D2")
-            }
+        if(d1.isChecked && d1.isEnabled)
+        {
+            seats.add("D1")
         }
-
-        d3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D3")
-            } else
-            {
-                seats.remove("D3")
-            }
+        if(d2.isChecked && d2.isEnabled)
+        {
+            seats.add("D2")
         }
-
-        d4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D4")
-            } else
-            {
-                seats.remove("D4")
-            }
+        if(d3.isChecked && d3.isEnabled)
+        {
+            seats.add("D3")
         }
-
-        d5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D5")
-            } else
-            {
-                seats.remove("D5")
-            }
+        if(d4.isChecked && d4.isEnabled)
+        {
+            seats.add("D4")
         }
-
-        d6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("D6")
-            } else
-            {
-                seats.remove("D6")
-            }
+        if(d5.isChecked && d5.isEnabled)
+        {
+            seats.add("D5")
         }
-
-        e1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E1")
-            } else
-            {
-                seats.remove("E1")
-            }
+        if(d6.isChecked && d6.isEnabled)
+        {
+            seats.add("D6")
         }
-
-        e2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E2")
-            } else
-            {
-                seats.remove("E2")
-            }
+        if(e1.isChecked && e1.isEnabled)
+        {
+            seats.add("E1")
         }
-
-        e3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E3")
-            } else
-            {
-                seats.remove("E3")
-            }
+        if(e2.isChecked && e2.isEnabled)
+        {
+            seats.add("E2")
         }
-
-        e4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E4")
-            } else
-            {
-                seats.remove("E4")
-            }
+        if(e3.isChecked && e3.isEnabled)
+        {
+            seats.add("E3")
         }
-
-        e5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E5")
-            } else
-            {
-                seats.remove("E5")
-            }
+        if(e4.isChecked && e4.isEnabled)
+        {
+            seats.add("E4")
         }
-
-        e6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("E6")
-            } else
-            {
-                seats.remove("E6")
-            }
+        if(e5.isChecked && e5.isEnabled)
+        {
+            seats.add("E5")
         }
-
-        f1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F1")
-            } else
-            {
-                seats.remove("F1")
-            }
+        if(e6.isChecked && e6.isEnabled)
+        {
+            seats.add("E6")
         }
-
-        f2.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F2")
-            } else
-            {
-                seats.remove("F2")
-            }
+        if(f1.isChecked && f1.isEnabled)
+        {
+            seats.add("F1")
         }
-
-        f3.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F3")
-            } else
-            {
-                seats.remove("F3")
-            }
+        if(f2.isChecked && f2.isEnabled)
+        {
+            seats.add("F2")
         }
-
-        f4.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F4")
-            } else
-            {
-                seats.remove("F4")
-            }
+        if(f3.isChecked && f3.isEnabled)
+        {
+            seats.add("F3")
         }
-
-        f5.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F5")
-            } else
-            {
-                seats.remove("F5")
-            }
+        if(f4.isChecked && f4.isEnabled)
+        {
+            seats.add("F4")
         }
-
-        f6.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
-                seats.add("F6")
-            } else
-            {
-                seats.remove("F6")
-            }
+        if(f5.isChecked && f5.isEnabled)
+        {
+            seats.add("F5")
+        }
+        if(f6.isChecked && f6.isEnabled)
+        {
+            seats.add("F6")
         }
     }
 
@@ -845,7 +644,7 @@ class BookedSeatsActivity : AppCompatActivity()
         val dateFormatDatabase = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val bookingDate = dateFormatDatabase.format(currentDate.time)
         val booking = Booking(
-            UserId = id,
+            UserId = id.toString(),
             MovieName = movieId.toString(),
             BookingDate = bookingDate,
             ShowDate = selectDate,
@@ -856,13 +655,22 @@ class BookedSeatsActivity : AppCompatActivity()
         CoroutineScope(Dispatchers.IO).launch {
             val bookingService = BookingService()
             val response = bookingService.bookSeats(booking)
+            var bookingid: Int = 0
             if (response.code == HttpURLConnection.HTTP_OK)
             {
+                val bookings = Gson().fromJson(response.message, Booking::class.java)
                 withContext(Dispatchers.Main)
                 {
                     Toast.makeText(this@BookedSeatsActivity, "Booking Done!", Toast.LENGTH_LONG)
                         .show()
-                    startActivity(Intent(this@BookedSeatsActivity, BookingActivity::class.java))
+                    val intent = Intent(this@BookedSeatsActivity, BookingActivity::class.java)
+
+                    intent.putExtra("id",bookings.Id)
+                    intent.putExtra("seats",seats)
+
+
+
+                    startActivity(intent)
                     finish()
                 }
             }
