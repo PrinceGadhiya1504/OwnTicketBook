@@ -669,7 +669,6 @@ class BookedSeatsActivity : AppCompatActivity()
                     intent.putExtra("seats",seats)
 
 
-
                     startActivity(intent)
                     finish()
                 }

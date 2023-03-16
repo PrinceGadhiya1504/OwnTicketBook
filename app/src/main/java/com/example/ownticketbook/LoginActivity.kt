@@ -69,12 +69,6 @@ class LoginActivity : AppCompatActivity()
             }
         }
 
-        findViewById<TextView>(R.id.lblforgetpassword).let {
-            it.setOnClickListener {
-                val intent = Intent(this, ForgotPasswordActivity::class.java)
-                startActivity(intent)
-            }
-        }
     }
 
     private fun movie()

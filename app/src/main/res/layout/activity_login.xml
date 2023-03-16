@@ -64,15 +64,6 @@
             android:autofillHints="password"
             android:inputType="textPassword" />
 
-        <TextView
-            android:id="@+id/lblforgetpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtpassword"
-            android:layout_alignParentEnd="true"
-            android:text="Forgot Password"
-            android:textColor="@color/greenblue"
-            android:textSize="13sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnlogin"

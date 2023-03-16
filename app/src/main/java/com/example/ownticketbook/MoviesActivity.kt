@@ -2,7 +2,7 @@ package com.example.ownticketbook
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +15,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.net.HttpURLConnection
 
 class MoviesActivity : AppCompatActivity()
 {
@@ -73,11 +72,12 @@ class MoviesActivity : AppCompatActivity()
                     {
                         override fun onClick(movie: Movie)
                         {
-                            val intent = Intent(this@MoviesActivity, BookedSeatsActivity::class.java)
+                            val intent =
+                                Intent(this@MoviesActivity, BookedSeatsActivity::class.java)
                             intent.putExtra("Id", movie.Id)
                             intent.putExtra("Name", movie.Name)
-                            intent.putExtra("FirstShowTime",movie.FirstShowTime)
-                            intent.putExtra("SecondShowTime",movie.SecondShowTime)
+                            intent.putExtra("FirstShowTime", movie.FirstShowTime)
+                            intent.putExtra("SecondShowTime", movie.SecondShowTime)
                             intent.putExtra("TicketPrice", movie.TicketPrice)
                             startActivity(intent)
                         }
@@ -85,6 +85,13 @@ class MoviesActivity : AppCompatActivity()
 
                 recmovielist.layoutManager = GridLayoutManager(this@MoviesActivity, 1)
                 recmovielist.adapter = moviesAdapter
+            }
+        }
+
+        findViewById<Button>(R.id.btnuser).let {
+            it.setOnClickListener {
+                val intent = Intent(this, PersonActivity::class.java)
+                startActivity(intent)
             }
         }
     }
